@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<context:annotation-config></context:annotation-config>
+	<context:component-scan base-package="com.qf.express"></context:component-scan>
+	<mvc:annotation-driven/>
+	<!-- <context:component-scan base-package="com.qf.action"/> -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/page/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+	
+	<mvc:default-servlet-handler/>
+	
+	<!-- 创建直接跳转 -->
+	<mvc:view-controller path="/" view-name="testlogin"/>
+	<mvc:view-controller path="/toindex" view-name="testindex"/>
+	<!-- system模块 -->
+	<mvc:view-controller path="/user/touser" view-name="system/tousers"/>
+	<mvc:view-controller path="/user/torole" view-name="system/torole"/>
+	<mvc:view-controller path="/user/toright" view-name="system/toright"/>
+	<!-- base模块 -->
+	<mvc:view-controller path="/page/base/toregion" view-name="base/region"/>
+	<mvc:view-controller path="/page/base/tosubarea" view-name="base/subarea"/>
+	<mvc:view-controller path="/page/base/todecidedzone" view-name="base/decidedzone"/>
+	<mvc:view-controller path="/page/base/tostaff" view-name="base/staff"/>
+	<mvc:view-controller path="/page/work/torg" view-name="work/rg"/>
+	
+	<!-- 把spring的文件上传的解析器 配置成bean -->
+	 <bean id="multipartResolver"								
+       class="org.springframework.web.multipart.commons.CommonsMultipartResolver">								
+       	<property name="defaultEncoding" value="UTF-8"/>							
+       	<property name="maxUploadSize" value="5242880"/>
+       	<property name="maxInMemorySize" value="1024"/>			
+       </bean>								
+	
+	
+
+</beans>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<jaxws:client id="crmClient"
+		serviceClass="com.qf.express.crm.client.CustomerService"
+		address="http://localhost:8084/service/customer"/>
+	
+	<jaxws:client id="decidedClient"
+		serviceClass="com.qf.express.manage.client.DecidedzoneService"
+		address="http://localhost:8081/service/decided"/>	
+	
+	<jaxws:client id="expressClient"
+		serviceClass="com.qf.express.manage.client.ExpressService"
+		address="http://localhost:8081/service/express"/>
+		
+	<jaxws:client id="regionClient"
+		serviceClass="com.qf.express.manage.client.RegionService"
+		address="http://localhost:8081/service/region"/>
+		
+	<jaxws:client id="roleClient"
+		serviceClass="com.qf.express.manage.client.RoleService"
+		address="http://localhost:8081/service/role"/>
+		
+	<jaxws:client id="userClient"
+		serviceClass="com.qf.express.manage.client.UserService"
+		address="http://localhost:8081/service/user"/>
+		
+	<jaxws:client id="qpClient"
+		serviceClass="com.qf.express.manage.client.QpService"
+		address="http://localhost:8081/service/qp"/>
+		
+	<jaxws:client id="msgClient" 		
+		serviceClass="com.qf.express.message.client.MsgService" 
+		address="http://localhost:8086/service/msgservice"/>
+</beans>
